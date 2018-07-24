@@ -8,7 +8,7 @@ module.exports = (deployer, network) => {
     await deployer.link(LeafToken, FernBlockReward)
     const fernBlockReward = await deployer.deploy(FernBlockReward, LeafToken.address, SYSTEM_ADDRESS)
 
-    if (network === 'development') {
+    if (network !== 'production') {
       // transfer leaf tokens to block reward contract for testing
       await leafToken.transfer(fernBlockReward.address, 10000000)
     }

@@ -32,7 +32,7 @@ contract('FernBlockReward', accounts => {
     expect(balance).to.equal('1')
   })
 
-  it('should reject calls not coming from system', async () => {
+  it('should reject calls not coming from system', () => {
     const benefactors = [
       accounts[1],
       accounts[2],
@@ -43,6 +43,6 @@ contract('FernBlockReward', accounts => {
     const kind = [ 0, 1, 2, 3 ]
 
     const result = blockReward.reward(benefactors, kind, { from: accounts[1] })
-    expect(result).to.eventually.throw('revert')
+    expect(result).be.rejectedWith('revert')
   })
 })
