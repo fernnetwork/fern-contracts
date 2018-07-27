@@ -31,13 +31,8 @@ contract FernBlockReward is BlockReward {
   {
     require(benefactors.length == kind.length);
 
-    uint256 amount = token.balanceOf(this);
-    require(amount > 1);
-
-    // transfer reward token
     token.safeTransfer(benefactors[0], 1);
 
-    // no ethers rewards
     return (benefactors, new uint256[](benefactors.length));
   }
 }
