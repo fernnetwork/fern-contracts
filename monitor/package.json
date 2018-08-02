@@ -1,0 +1,14 @@
+{
+  "name": "block-reward-monitor",
+  "version": "1.0.0",
+  "description": "Block reward test program for monitoring miner token increase.",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "author": "Fern Network <info@fern.network>",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "web3": "^1.0.0-beta.33"
+  }
+}

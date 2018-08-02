@@ -5,7 +5,7 @@
   "scripts": {
     "compile": "npx truffle compile",
     "migrate": "npx truffle migrate",
-    "test": "npx truffle test --network test"
+    "test": "npx truffle test --network develop"
   },
   "author": "Fern Network <info@fern.network>",
   "license": "GPL-3.0",
