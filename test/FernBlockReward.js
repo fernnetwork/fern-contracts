@@ -32,6 +32,28 @@ contract('FernBlockReward', accounts => {
     expect(balance).to.equal('1')
   })
 
+  it('should only reward block author', async () => {
+    const benefactors = [
+      accounts[2],
+      accounts[3],
+      accounts[4]
+    ]
+
+    const kind = [ 0, 1, 2 ]
+
+    await blockReward.reward(benefactors, kind, { from: SYSTEM })
+
+    const [ minerBalance, uncleBalance, emptyStepAuthorBalance ] = await Promise.all([
+      leafToken.balanceOf(accounts[2]),
+      leafToken.balanceOf(accounts[3]),
+      leafToken.balanceOf(accounts[4])
+    ])
+
+    expect(minerBalance).to.equal('1')
+    expect(uncleBalance).to.equal('0')
+    expect(emptyStepAuthorBalance).to.equal('0')
+  })
+
   it('should reject calls not coming from system', () => {
     const benefactors = [
       accounts[1],

@@ -31,7 +31,12 @@ contract FernBlockReward is BlockReward {
   {
     require(benefactors.length == kind.length);
 
-    token.safeTransfer(benefactors[0], 1);
+    for (uint i = 0; i < benefactors.length; i++) {
+      // only reward block author
+      if(kind[i] == 0) {
+        token.safeTransfer(benefactors[0], 1);
+      }
+    }
 
     return (benefactors, new uint256[](benefactors.length));
   }
