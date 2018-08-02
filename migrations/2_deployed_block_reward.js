@@ -1,8 +1,11 @@
 const LeafToken = artifacts.require('LeafToken')
 const FernBlockReward = artifacts.require('FernBlockReward')
-const SYSTEM_ADDRESS = '0xffffFFFfFFffffffffffffffFfFFFfffFFFfFFfE'
+const { networks } = require('./config.json')
 
 module.exports = (deployer, network) => {
+  const networkConfig = networks[network] || networks.default
+  const { SYSTEM_ADDRESS } = networkConfig
+
   deployer.then(async () => {
     const leafToken = await deployer.deploy(LeafToken)
     await deployer.link(LeafToken, FernBlockReward)

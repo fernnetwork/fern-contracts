@@ -8,13 +8,13 @@ const FernBlockReward = artifacts.require('./FernBlockReward.sol')
 const LeafToken = artifacts.require('./LeafToken.sol')
 
 contract('FernBlockReward', accounts => {
-  const SYSTEM = accounts[9]
+  const SYSTEM = accounts[0]
   let leafToken
   let blockReward
 
   beforeEach(async () => {
-    leafToken = await LeafToken.new()
-    blockReward = await FernBlockReward.new(leafToken.address, SYSTEM)
+    leafToken = await LeafToken.deployed()
+    blockReward = await FernBlockReward.deployed()
     leafToken.transfer(blockReward.address, 1000000)
   })
 
