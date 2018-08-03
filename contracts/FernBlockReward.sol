@@ -28,7 +28,6 @@ contract FernBlockReward is BlockReward {
   constructor(ERC20Basic _token, address _systemAddress)
     public
   {
-    // systemAddress = 0xffffFFFfFFffffffffffffffFfFFFfffFFFfFFfE;
     systemAddress = _systemAddress;
     token = _token;
   }
