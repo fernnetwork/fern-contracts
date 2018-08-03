@@ -10,5 +10,4 @@ ERC-20 token for rewarding service provider contributions in the network. Networ
 these tokens from an exchange and deposit them into the `FernBlockReward`.
 
 ### FernBlockReward
-Rewards block miner with ERC-20 tokens when a block is mined. The default token can be specified during 
-deployment of this contract. Default token used is Leaf. This can
+Rewards block miner with ERC-20 tokens for every block mined. Default token used is Leaf. This can be changed to any ERC-20 compliant token contract during deployment of this contract.
